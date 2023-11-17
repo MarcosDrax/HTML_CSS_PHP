@@ -1,0 +1,122 @@
+<!doctype html>
+	<html lang="pt-br">
+		<head>
+			<title>Titulo Da Pagina de Tabelas</title>
+			<meta charset="utf-8">
+
+			<!-- criando CSS da tabela -->
+			<style>
+				table {
+            	font-family: Arial, sans-serif;
+            	border-collapse: collapse;
+           		width: 100%;
+        		}
+
+        		th, td {
+           		border: 1px solid #dddddd;
+            	text-align: left;
+            	padding: 8px;
+        		}
+
+        		th {
+            	cursor: pointer;
+        		}
+    		</style>
+    		<meta http-equiv="Content-type" content="text/html; charset = iso-8859-1" />
+            <script type="text/javascript">
+                alert("Seja Bem Vindo Usuario! \n Você está acessando uma Pagina com Dados Empresariais ");
+                confirm("Seja Bem Vindo Usuario! \n Tem certeza que quer o acesso \ n Esta Operação não poderá ser desfeita");
+                prompt('Usuario Informe \n A data do seu nascimento para acesso', "dd/mm/aaa");
+                document.write("<h2>O metodo <code>write()</code></h2>");
+                document.write("<p>O metodo <code>write()</code> do objeto <code> document</code> destina-se a escrever marcação HTML com usoo da JavaScript </p>");
+                <button type="button" onclick="alert('Caixa de alerta');">alert</button>
+                <button type="button" onclick="confirm('Caixa de Confirmação ');">Confirm</button>
+                <button type="button" onclick="prompt('Caixa de de dados');">prompt</button>  
+            </script>
+ 		</head>
+		<body>
+			<!-- comentario de HTML para os titulos -->
+			<h1>Meu tiltulo principal</h1>
+			<h2>Meu titulo de alto nivel</h2>
+			<h3>Meu subtitulo</h3>
+			<h4>Meu segundo subtitulo</h4>
+				<p>Este é um paragrafo simples para colocar textos dentro do html, informações no corpo do site</p>
+				<p>Na top Data Somos uma empresa Nacional</p>
+
+					<!-- criando tabela com javascript -->
+					<table id="tabela" border="2">
+						<thead>
+							<tr> 
+								<th onclick="ordenarTabela(0)">Setor Grafico</th>
+								<th onclick="ordenarTabela(1)">Setor Desenvolvimento</th>
+								<th onclick="ordenarTabela(2)">Setor Acabamento</th>
+								<th onclick="ordenarTabela(3)">Setor Financeiro</th>
+								<th onclick="ordenarTabela(4)">Setor Comercial</th>
+							</tr>          
+			<tr>
+                <td>1</td>
+                <td>João</td>
+                <td>joao@email.com</td>
+                <td>maquinario</td>
+                <td>contabilidade</td>
+                <td>proposta</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Maria</td>
+                <td>maria@email.com</td>
+                <td>acabamento</td>
+                <td>cobrança</td>
+                <td>proposta</td>                
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Maria Antonia</td>
+                <td>maria_ant@email.com</td>
+                <td>acabamento</td>
+                <td>contabilidade</td>
+                <td>proposta</td>                
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>Carlos Maria</td>
+                <td>carlos@email.com</td>
+                <td>produção</td>
+                <td>cobrança</td>
+                <td>proposta</td>                
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Antonio Marcos</td>
+                <td>antonio@email.com</td>
+                <td>envelopamento</td>
+                <td>contabilidade</td>
+                <td>proposta</td>                
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>João Rodrigues</td>
+                <td>joão@email.com</td>
+                <td>envelopamento</td>
+                <td>atend_clinte</td>
+                <td>proposta</td>                
+            </tr> 
+						</thead>
+					</ul>
+				<p>Trabalhando juntos para Seu Carnê Seja melhor Produzido</p>
+                
+                <script>
+
+        var dados = [
+            [1, "João", "joao@email.com"],
+            [2, "Maria", "maria@email.com"],
+            // Adicione mais dados conforme necessário
+        ];
+                            
+            function ordenarTabela(coluna) {
+            var tabela = document.getElementById("tabela");
+            var linhas = Array.from(tabela.rows);
+            }      
+                </script>            
+		</body>
+	</html>
