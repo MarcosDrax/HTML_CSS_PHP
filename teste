@@ -1,0 +1,28 @@
+    let Nome     = 'Marcos Vinicius';
+    let TNome    = '';
+    let anoAtual = 2024;
+    let anoNasc  = 1926;
+    let minIdade = 18;
+    let maxIdade = 75; 
+
+        const idade          = anoAtual - anoNasc;
+        const idadeMin       = age <= minIdade; //true
+        const idadeMax       = age <= maxIdade //true
+
+            if (idadeMax && !idadeMin)  {
+                message = 'Sua idade é compativel';
+                messag  = 'anos você pode beber neste estabelecimento ';
+                } else {
+                message = 'Sua idade não é compativel';
+                messag  = 'anos você nao pode beber neste estabelecimento ';
+                }
+
+            if ((Nome && !TNome) && (Nome || !TNome)) {
+              Nmessage = 'Seu Nome não Foi escrito ';
+              } else {
+              Nmessage = Nome;
+              } 
+
+    console.log(Nmessage);
+    console.log('Voce tem a idade de ',idade, messag);
+    console.log(message);
