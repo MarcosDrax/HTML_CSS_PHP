@@ -1,13 +1,13 @@
-    let Nome     = 'Marcos Vinicius';
+    let Nome     = 'Marcos';
     let TNome    = '';
     let anoAtual = 2024;
-    let anoNasc  = 1926;
+    let anoNasc  = 2024;
     let minIdade = 18;
     let maxIdade = 75; 
 
         const idade          = anoAtual - anoNasc;
-        const idadeMin       = age <= minIdade; //true
-        const idadeMax       = age <= maxIdade //true
+        const idadeMin       = idade <= minIdade; //true
+        const idadeMax       = idade <= maxIdade //true
 
             if (idadeMax && !idadeMin)  {
                 message = 'Sua idade é compativel';
@@ -17,8 +17,8 @@
                 messag  = 'anos você nao pode beber neste estabelecimento ';
                 }
 
-            if ((Nome && !TNome) && (Nome || !TNome)) {
-              Nmessage = 'Seu Nome não Foi escrito ';
+            if (Nome && TNome) {
+              Nmessage = 'Os nomes estão divergentes!!! ';
               } else {
               Nmessage = Nome;
               } 
