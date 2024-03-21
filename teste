@@ -1,90 +1,90 @@
-    let Nome     = 'Marcos';
-    let TNome    = '';
-    let anoAtual = 2024;
-    let anoNasc  = 1997;
-    let minIdade = 18;
-    let maxIdade = 75;
-	
-	let Altrum   = 56.0;
-	let Altusq   = 0;
-	let AltCer   = 0;
-	let AltAgd   = 15;
-	let Altvdq   = 55;
-	let Altlic   = 37.0;
-	
-        const idade          = anoAtual - anoNasc;
-        const idadeMin       = idade <= minIdade; 
-        const idadeMax       = idade <= maxIdade; 
+let Nome     = 'Marcos';
+let TNome    = 'Marcos';
+let anoAtual = 2032;
+let anoNasc  = 1986;
+let minIdade = 18;
+let maxIdade = 75;
 
-            if (idadeMax && !idadeMin)  {
-                message = 'Sua idade é compativel';
-                messag  = 'anos você pode beber neste estabelecimento ';
-                } else {
-                message = 'Sua idade não é compativel';
-                messag  = 'anos você nao pode beber neste estabelecimento ';
-                }
+let Altrum   = 56.0;
+let Altusq   = 0;
+let AltCer   = 0;
+let AltAgd   = 15;
+let Altvdq   = 55;
+let Altlic   = 37.0;
 
-            if (Nome && !TNome) {
-                Nmessage = Nome;
-              } else {
-                Nmessage = 'Os nomes estão divergentes!!! ';
-              }
+    const idade          = anoAtual - anoNasc;
+    const idadeMin       = idade <= minIdade; 
+    const idadeMax       = idade <= maxIdade; 
 
-			//teor de Rum 
-			if (Altrum < 35.0){
-				terum = 'seu teor alcollico de Rum está abaixo '+ Altrum+' % ';
-				}else if (Altrum >= 35.0 && Altrum <= 54.0) {
-				terum = 'seu teor alcoolico de Rum esta aceitável  '+ Altrum+' % ';
-                }else if (Altrum > 54.0) {
-                terum = 'seu teor alcoolico de Rum esta acima do aceitável  '+ Altrum+' % ';
-				}
-			//teor de Uisque	
-			if (Altusq < 38.0){
-				teruiq = 'seu teor alcoolico de Uisque está abaixo '+ Altusq+' % ';
-				}else if (Altusq >= 38.0 && Altusq <= 54.0){
-				teruiq = 'seu teor alcolico de Uisque esta aceitável '+ Altusq+' % ';
-				}else if (Altusq > 54.0){
-				teruiq = 'seu teor alcolico de Uisque esta acima do aceitável '+ Altusq+' % ';	
-				}	
-			//teor de cerveja	
-			if ( AltCer < 0.5 ){
-				tercej = 'seu teor alcoolico de Cerveja está abaixo '+ AltCer+' % ';
-				}else if (AltCer >=  0.5 && AltCer <= 54.0){
-				tercej = 'seu teor alcolico de Cerveja esta aceitavel '+ AltCer+' % ';
-				}else if (AltCer > 54.0){
-				tercej = 'seu teor alcolico de Cerveja esta acima do aceitavel '+ AltCer+' % ';
-				}
-			//teor de Aguardente	
-			if ( AltAgd < 38.0){
-				teragd = 'seu teor alcoolico de Aguardente está abaixo '+ AltAgd+' % ';
-				}else if (AltAgd >= 38.0 && AltAgd < 54.0){
-				teragd = 'seu teor alcolico de Aguardente esta aceitavel '+ AltAgd+' % ';
-				}else if (AltAgd > 54.0) {
-				teragd = 'seu teor alcolico de Aguardente esta acima do aceitável '+ AltAgd+' % ';	
-				}	
-			//teor de Vodka	
-			if ( Altvdq < 36.0 ){
-				tervdk = 'seu teor alcoolico de Vodka '+ Altvdq+' % ';
-				}else if (Altvdq >= 36.0 && Altvdq <= 54.0){
-				tervdk = 'seu teor alcolico de Vodka esta aceitavel '+ Altvdq+' % ';
-				}else if (Altvdq > 54.0) {
-				tervdk = 'seu teor alcollico de Vodka esta acima do aceitavel '+ Altvdq+' % ';	
-				}
-			//teor de licor
-			if ( Altlic < 36.0){
-				tercor = 'seu teor alcoolico de Licor esta abaixo '+ Altlic+' % ';
-				}else if (Altlic >= 36.0 && Altlic < 54.0){
-				tercor = 'seu teor alcolico de Licor esta aceitavel '+ Altlic+' % ';
-				}else if (Altlic > 54.0) {
-				tercor = 'seu teor alcolico de Licor esta acima do aceitável '+ Altlic+' % ';	
-				}	
-				
-    console.log(Nmessage);    
-    console.log('Voce tem a idade de ',idade, messag);
-    console.log(message);
-    console.log(terum);
-    console.log(teruiq);
-    console.log(tercej);
-    console.log(teragd);
-    console.log(tervdk);
-    console.log(tercor);
+        if (idadeMax && !idadeMin)  {
+            message = 'Sua idade é compativel';
+            messag  = 'anos você pode beber neste estabelecimento ';
+            } else {
+            message = 'Sua idade não é compativel';
+            messag  = 'anos você nao pode beber neste estabelecimento ';
+            }
+
+        if (Nome === TNome) {
+            Nmessage = Nome;
+          } else {
+            Nmessage = 'Os nomes estão divergentes!!! ';
+          }
+
+        //teor de Rum 
+        if (Altrum < 35.0){
+            terum = 'seu teor alcollico de Rum está abaixo '+ Altrum+' % ';
+            }else if (Altrum >= 35.0 && Altrum <= 54.0) {
+            terum = 'seu teor alcoolico de Rum esta aceitável  '+ Altrum+' % ';
+            }else if (Altrum > 54.0) {
+            terum = 'seu teor alcoolico de Rum esta acima do aceitável  '+ Altrum+' % ';
+            }
+        //teor de Uisque	
+        if (Altusq < 38.0){
+            teruiq = 'seu teor alcoolico de Uisque está abaixo '+ Altusq+' % ';
+            }else if (Altusq >= 38.0 && Altusq <= 54.0){
+            teruiq = 'seu teor alcolico de Uisque esta aceitável '+ Altusq+' % ';
+            }else if (Altusq > 54.0){
+            teruiq = 'seu teor alcolico de Uisque esta acima do aceitável '+ Altusq+' % ';	
+            }	
+        //teor de cerveja	
+        if ( AltCer < 0.5 ){
+            tercej = 'seu teor alcoolico de Cerveja está abaixo '+ AltCer+' % ';
+            }else if (AltCer >=  0.5 && AltCer <= 54.0){
+            tercej = 'seu teor alcolico de Cerveja esta aceitavel '+ AltCer+' % ';
+            }else if (AltCer > 54.0){
+            tercej = 'seu teor alcolico de Cerveja esta acima do aceitavel '+ AltCer+' % ';
+            }
+        //teor de Aguardente	
+        if ( AltAgd < 38.0){
+            teragd = 'seu teor alcoolico de Aguardente está abaixo '+ AltAgd+' % ';
+            }else if (AltAgd >= 38.0 && AltAgd < 54.0){
+            teragd = 'seu teor alcolico de Aguardente esta aceitavel '+ AltAgd+' % ';
+            }else if (AltAgd > 54.0) {
+            teragd = 'seu teor alcolico de Aguardente esta acima do aceitável '+ AltAgd+' % ';	
+            }	
+        //teor de Vodka	
+        if ( Altvdq < 36.0 ){
+            tervdk = 'seu teor alcoolico de Vodka '+ Altvdq+' % ';
+            }else if (Altvdq >= 36.0 && Altvdq <= 54.0){
+            tervdk = 'seu teor alcolico de Vodka esta aceitavel '+ Altvdq+' % ';
+            }else if (Altvdq > 54.0) {
+            tervdk = 'seu teor alcollico de Vodka esta acima do aceitavel '+ Altvdq+' % ';	
+            }
+        //teor de licor
+        if ( Altlic < 36.0){
+            tercor = 'seu teor alcoolico de Licor esta abaixo '+ Altlic+' % ';
+            }else if (Altlic >= 36.0 && Altlic < 54.0){
+            tercor = 'seu teor alcolico de Licor esta aceitavel '+ Altlic+' % ';
+            }else if (Altlic > 54.0) {
+            tercor = 'seu teor alcolico de Licor esta acima do aceitável '+ Altlic+' % ';	
+            }	
+            
+console.log(Nmessage);    
+console.log('Voce tem a idade de ',idade, messag);
+console.log(message);
+console.log(terum);
+console.log(teruiq);
+console.log(tercej);
+console.log(teragd);
+console.log(tervdk);
+console.log(tercor);
