@@ -1,5 +1,5 @@
-let Nome     = '';
-let TNome    = '';
+let Nome     = 'Marcos';
+let TNome    = 'Vinicius';
 let anoAtual = 2032;
 let anoNasc  = 1986;
 let minIdade = 18;
@@ -26,12 +26,12 @@ let Altlic   = 37.0;
 
         if (Nome === TNome) {
             Nmessage = Nome;
+          } else if ((Nome === '') && (TNome === '')) {
+            Nmessage = 'O Nome e Sobrenome não foram adicionados ao Programa !!! ';	            
           } else if (Nome === '') {
             Nmessage = 'O nome Não foi adicionado ao Programa !!! ';
           } else if (TNome === '') {
             Nmessage = 'O sobrenome Não foi adicionado ao Programa !!! ';
-          } else if ((Nome === '') && (TNome === '')) {
-            Nmessage = 'O Nome e Sobrenome não foram adicionados ao Programa !!! ';	            
           } else {
 		  Nmessage = 'O Nome e Sobrenome foram adicionados ao Programa !!! '
 		  }
