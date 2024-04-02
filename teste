@@ -1,9 +1,9 @@
 let Nome     = 'Marcos';
-let TNome    = 'Vinicius';
-let anoAtual = 2032;
+let TNome    = '';
+let anoAtual = 2024;
 let anoNasc  = 1986;
 let minIdade = 18;
-let maxIdade = 75;
+let maxIdade = 50;
 
 let Altrum   = 56.0;
 let Altusq   = 0;
@@ -17,17 +17,17 @@ let Altlic   = 37.0;
     const idadeMax       = idade <= maxIdade; 
 
         if (idadeMax && !idadeMin)  {
-            message = 'Sua idade é compativel';
-            messag  = 'anos você pode beber neste estabelecimento ';
+            message = 'sua idade é compativel';
+            messag  = 'você pode beber neste estabelecimento ';
             } else {
-            message = 'Sua idade não é compativel';
-            messag  = 'anos você nao pode beber neste estabelecimento ';
+            message = 'sua idade não é compativel';
+            messag  = 'você não pode beber neste estabelecimento ';
             }
 
         if (Nome === TNome) {
             Nmessage = Nome;
           } else if ((Nome === '') && (TNome === '')) {
-            Nmessage = 'O Nome e Sobrenome não foram adicionados ao Programa !!! ';	            
+                Nmessage = 'O Nome e Sobrenome não foram adicionados ao Programa !!! ';	            
           } else if (Nome === '') {
             Nmessage = 'O nome Não foi adicionado ao Programa !!! ';
           } else if (TNome === '') {
@@ -85,9 +85,8 @@ let Altlic   = 37.0;
             tercor = 'seu teor alcolico de Licor esta acima do aceitável '+ Altlic+' % ';	
             }	
             
-console.log(Nmessage);    
-console.log('Voce tem a idade de ',idade, messag);
-console.log(message);
+console.log(Nome,'',TNome,'',Nmessage);    
+console.log('Voce tem a idade de',idade, message, messag);
 console.log(terum);
 console.log(teruiq);
 console.log(tercej);
