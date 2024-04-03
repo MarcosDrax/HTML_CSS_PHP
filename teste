@@ -1,4 +1,4 @@
-let Nome     = 'Marcos';
+let Nome     = '';
 let TNome    = '';
 let anoAtual = 2024;
 let anoNasc  = 1986;
@@ -24,8 +24,8 @@ let Altlic   = 37.0;
             messag  = 'você não pode beber neste estabelecimento ';
             }
 
-        if (Nome === TNome) {
-            Nmessage = Nome;
+        if (Nome && TNome)  {
+            Nmessage = Nome + TNome;
           } else if ((Nome === '') && (TNome === '')) {
                 Nmessage = 'O Nome e Sobrenome não foram adicionados ao Programa !!! ';	            
           } else if (Nome === '') {
@@ -33,7 +33,7 @@ let Altlic   = 37.0;
           } else if (TNome === '') {
             Nmessage = 'O sobrenome Não foi adicionado ao Programa !!! ';
           } else {
-		  Nmessage = 'O Nome e Sobrenome foram adicionados ao Programa !!! '
+		  Nmessage = 'O Nome e Sobrenome foram adicionados ao Programa !!! ';
 		  }
 
         //teor de Rum 
