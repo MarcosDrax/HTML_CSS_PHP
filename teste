@@ -2,15 +2,15 @@ let Nome     = '';
 let TNome    = '';
 let anoAtual = 2024;
 let anoNasc  = 1986;
-let minIdade = 18;
+cons minIdade = 18;
 let maxIdade = 50;
 
-let Altrum   = 56.0;
-let Altusq   = 0;
-let AltCer   = 0;
-let AltAgd   = 15;
-let Altvdq   = 55;
-let Altlic   = 37.0;
+const Altrum   = 56.0;
+const Altusq   = 0;
+const AltCer   = 0;
+const AltAgd   = 15;
+const Altvdq   = 55;
+const Altlic   = 37.0;
 
     const idade          = anoAtual - anoNasc;
     const idadeMin       = idade <= minIdade; 
