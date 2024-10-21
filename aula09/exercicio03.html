@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de PHP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <main>
+            <form action="exercicio03.php" method="POST"  autocomplete="on">
+                <label for="naluno">Nome do Aluno:</label>
+                <input type="text" id="naluno" name="naluno" placeholder="Nome do Aluno" required /><br><br>
+
+                <label for="n1">Nota 1:</label>
+                <input type="number" id="n1" name="n1" placeholder="1ª nota"  step="0.5" min="0" max="10"/><br><br>
+
+                <label for="n2">Nota 2:</label>
+                <input type="number" id="n2" name="n2" placeholder="2ª nota"  step="0.5" min="0" max="10"/><br><br>
+
+                <label for="n3">Nota 3:</label>
+                <input type="number" id="n3" name="n3" placeholder="3ª nota"  step="0.5" min="0" max="10"/><br><br>
+
+                <label for="n4">Nota 4:</label>
+                <input type="number" id="n4" name="n4" placeholder="4ª nota"  step="0.5" min="0" max="10"/><br><br>
+
+                <input type="submit" value="Calcular Média"/>
+            </form>
+        </main>        
+    </div>
+</body>
+</html>

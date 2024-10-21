@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de PHP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <main>
+            <form method="POST" action="exercicio03.php">
+                <fieldset><legend>Contador</legend>
+                    <label for='inicio'>Inicio: </label>
+                    <input type='number' id='inicio' name='inicio' max='1000' min='0' value='0' required/></br>
+                    <label for='fim'>Fim: </label>
+                    <input type='number' id='fim' name='fim' max='1000' min='0' value='0'required/></br>
+                    <label for="incremento">Incremento: </label>
+                    <input type='number' id='incremento' name='incremento' max='100' min='0' value='0'required/></br>
+                    <input type="submit" value="calcular" class="botao"/></br> 
+                </fieldset>     
+            </form>
+        </main>        
+    </div>
+</body>
+</html>

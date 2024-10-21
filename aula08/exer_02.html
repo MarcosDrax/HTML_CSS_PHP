@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso PHP - Aula 08</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <h1>Formulario de Cadastro</h1>
+        <form method="POST" action="action02.php" autocomplete="on">
+            <label for="inome">Nome:</label>
+            <input type="text" name="nome" id="inome">
+            
+            <label for="inasc">Ano de Nascimento:</label>
+            <input type="number" name="nasc" id="inasc">
+            
+            <fieldset><label for="sexo">Sexo:</label>
+            <input type="radio" name="sexo" id="masc" value="masculino">
+            <label for="masc">Masculino</label><br>
+            <input type="radio" name="sexo" id="fem" value="feminino">
+            <label for="fem">feminino</label></fieldset><br>
+
+            <input type="submit" name="enviar" value="Enviar">
+        </form>
+    </main>
+</body>
+</html>
