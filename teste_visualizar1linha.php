@@ -1,32 +1,28 @@
-<?php
-	$quantidade = 0;
-	$registroatual = '';
-	$registroantecessor = '';
-	$linhaAnterior = '';
-	$conteudolinhas = [];
+            <?php
+            $arquivo = fopen("visitas_novo.txt", "r");
 
-	$arquivo = fopen("visitas_novo.txt", "r");
-	while (!feof($arquivo)) { //looping
-		$linha_arquivo = fgets($arquivo);
-		for ($i=0; $i < 99; $i++) { //looping
-			if (substr($linha_arquivo,$i,1) == '|') {
-				break;
-			} else {
-				$quantidade = $quantidade+1;
-			}
-			$registroatual = substr($linha_arquivo,0,$quantidade);
-		}
-		                                
-		$quantidade = 0; //reseta a variavel de quantidade
-        
-        $conteudolinhas = [$registroatual];
-        echo "<pre>";
-        print_r($conteudolinhas)  ;
-        echo"</pre>";
+            $registrosUnicos = []; 
 
-        
-        $registroantecessor = $registroatual;
+            $linhaAnterior = '';
+            $linhaAtual    = '';
+            $linhaSeguinte = '';
 
-	}
-	fclose($arquivo);
-?>
+            while (!feof($arquivo)) {
+                $linhaAnterior = $linhaAtual;
+                $linhaAtual    = $linhaSeguinte;
+                $linhaSeguinte = fgets($arquivo);
+                
+                $registroAnterior = substr($linhaAnterior, 0, strpos($linhaAnterior . '|', '|'));
+                $registroAtual    = substr($linhaAtual, 0, strpos($linhaAtual . '|', '|'));
+                $registroSeguinte = substr($linhaSeguinte, 0, strpos($linhaSeguinte . '|', '|'));
+                
+                if ($registroAtual !== $registroAnterior && $registroAtual !== $registroSeguinte && $linhaAtual !== '') {
+                    $registrosUnicos[] = $linhaAtual; 
+                }
+            }
+                for ($i = 0; $i < count($registrosUnicos); $i++) {
+                    echo $registrosUnicos[$i] . "<br>";
+                }
+            fclose($arquivo);
+
+            ?>
