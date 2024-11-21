@@ -1,29 +1,35 @@
-            <?php
-            $arquivo = fopen("visitas_novo.txt", "r");
+<?php
+    $quantidade = 0;
+    $quantidade_vetor = 0;
+    $registroatual = '';
+    $registroantecessor = '';
+    $conteudolinhas = []; //vetor
 
-            $registrosUnicos = []; 
-
-            $linhaAnterior = '';
-            $linhaAtual    = '';
-            $linhaSeguinte = '';
-
-            while (!feof($arquivo)) {
-                $linhaAnterior = $linhaAtual;
-                $linhaAtual    = $linhaSeguinte;
-                $linhaSeguinte = fgets($arquivo);
-                
-                $registroAnterior = substr($linhaAnterior, 0, strpos($linhaAnterior . '|', '|'));
-                $registroAtual    = substr($linhaAtual, 0, strpos($linhaAtual . '|', '|'));
-                $registroSeguinte = substr($linhaSeguinte, 0, strpos($linhaSeguinte . '|', '|'));
-                
-                if ($registroAtual !== $registroAnterior && $registroAtual !== $registroSeguinte && $linhaAtual !== '') {
-                    $registrosUnicos[] = $linhaAtual; 
-                }
+    $arquivo = fopen("visitas_novo.txt", "r");
+    while (!feof($arquivo)) { //looping
+        $linha_arquivo = fgets($arquivo);
+        for ($i=0; $i < 99; $i++) { //looping
+            if (substr($linha_arquivo,$i,1) == '|') {
+                break;
+            } else {
+                $quantidade = $quantidade+1;
             }
-                for ($i = 0; $i < count($registrosUnicos); $i++) {
-                    echo $registrosUnicos[$i] . "<br>";
-                }
-            fclose($arquivo);
+            $registroatual = substr($linha_arquivo,0,$quantidade);
+        }
+        $quantidade = 0;                             
+        
 
-            ?>
-                                                                                    
+        if (($registroatual !== $registroantecessor) && ($quantidade_vetor !== 1)){
+            $conteudolinhas[] = $registroatual;
+            echo "<pre>";
+            print_r($conteudolinhas); 
+            print_r($quantidade_vetor) ;
+            echo "</pre>";
+            $conteudolinhas = []; //zera o vetor
+        }
+/* preciso adicionar 1 registro por vez mesmo aqueles registros que são iguais*/
+        $registroantecessor = $registroatual;
+        $quantidade_vetor = count($conteudolinhas);
+    }
+    fclose($arquivo);    
+    ?>
