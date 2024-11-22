@@ -1,43 +1,34 @@
 <?php
-$frequencias = [];
-$arquivo = fopen("visitas_novo.txt", "r");
+    $quantidade = 0;
+    $quantidade_vetor = 0;
+    $registroatual = '';
+    $registroantecessor = '';
+    $conteudolinhas = []; //vetor
+    $arquivo = fopen("visitas_novo.txt", "r");
 
-
-    while (!feof($arquivo)) {
+    while (!feof($arquivo)) { //looping
         $linha_arquivo = fgets($arquivo);
-        $quantidade = 0;
-        for ($i=0; $i < 99; $i++) { //looping
+        for ($i=0; $i < 99; $i++) {
             if (substr($linha_arquivo,$i,1) == '|') {
                 break;
             } else {
                 $quantidade = $quantidade+1;
             }
+            $registroatual = substr($linha_arquivo,0,$quantidade);
         }
-        $registroatual = substr($linha_arquivo, 0, $quantidade);
-
-
-        if ($registroatual !== '') {
-            $frequencias[$registroatual] = ($frequencias[$registroatual] ?? 0) + 1;
+        $quantidade = 0;                            
+			
+        if (($registroatual !==  $registroantecessor) and ($quantidade_vetor!== 0)) {           
+            if ($quantidade_vetor == 1) { 
+            echo $conteudolinhas[0] ."_".$quantidade_vetor."</br>";
+            }
+            $conteudolinhas = []; //zera o vetor
         }
-       
+        $conteudolinhas[]   = $registroatual;
+        $quantidade_vetor   = count($conteudolinhas); 
+        $registroantecessor = $registroatual;       
     }
-
-
-    fclose($arquivo);
-    $registrosUnicos = []; //zero o vetor!!!!
-
-
-    foreach ($frequencias as $registro => $contagem) {
-        if ($contagem === 1) {
-            $registrosUnicos[] = $registro;
-        }
-    }
-    foreach ($registrosUnicos as $registro) {
-        echo $registro . "<br>";
-       //echo "Quantidade = " . $frequencias[$registro] . "<br>";
-    }
-   
-?>
-
+    fclose($arquivo);    
+    ?>
 
 
