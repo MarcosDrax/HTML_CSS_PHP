@@ -7,14 +7,14 @@
     $arquivo = fopen("visitas_novo.txt", "r");
 
     while (!feof($arquivo)) { //looping
-        $linha_arquivo = fgets($arquivo);
+        $linha = fgets($arquivo);
         for ($i=0; $i < 99; $i++) {
-            if (substr($linha_arquivo,$i,1) == '|') {
+            if (substr($linha,$i,1) == '|') {
                 break;
             } else {
                 $quantidade = $quantidade+1;
             }
-            $registroatual = substr($linha_arquivo,0,$quantidade);
+            $registroatual = substr($linha,0,$quantidade);
         }
         $quantidade = 0;                            
 			
@@ -26,9 +26,11 @@
         }
         $conteudolinhas[]   = $registroatual;
         $quantidade_vetor   = count($conteudolinhas); 
-        $registroantecessor = $registroatual;       
+        $registroantecessor = $registroatual; 
+        
+        if($registroatual == ' '){
+            break;
+        }
     }
-    fclose($arquivo);    
+    fclose($arquivo);
     ?>
-
-
