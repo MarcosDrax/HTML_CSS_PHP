@@ -1,38 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sistema de Leitura de Arquivo</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <main>
+
 <?php
-$caracter = 0;
-$qtd = 0;
-$linhaprinc = '';
-$arquivo = fopen("visitas_novo.txt", "r");
+        $quantidade = 0;
+        $qtd = 0;
+        $linhas = []; //vetor
+        $final = false;
+        $arquivo = fopen("visitas_novo.txt", "r");
+            while (true) { //looping
+                $S = fgets($arquivo);
+                                   
+                /*for ($h=0; $h < 99; $h++) {
+                    if (substr($S,$h,1) == '|') {
+                        break;
+                    } else {
+                        $quantidade = $quantidade+1;
+                    }
+                }
 
-while (!feof($arquivo)) {
-    $linha_arquivo = fgets($arquivo);
-    /*algoritmo para encontrar o ID no arquivo*/
-    for ($h=0; $h < 99; $h++) {
-        if (substr($linha_arquivo,$h,1) == '|') {
-            break;
-        } else {
-            $caracter = $caracter+1;
-        }
-    }
-    /*algoritmo para encontrar a mensagem no arquivo*/
-    for ($i=0; $i < 99; $i++) {
-        if (substr($linha_arquivo,$caracter+$h,1) == '|') {
-            break;
-        } else {
-            $qtd = $qtd+1;
-        }
-    }
+                for ($i=0; $i < 99; $i++) {
+                    if (substr($S,$quantidade+$h,1) == '|') {
+                        break;
+                    } else {
+                        $qtd = $qtd+1;
+                    }
+                }*/
+                $linhas   = []; //zerando a linha no vetor
+                $linhas[] = $S;// introduzindo a linha no vetor
+
+                
+                 echo '<pre>';
+                 print_r($linhas);
+                 print_r(count($linhas));
+                 echo '</pre>';
 
 
-    $id = substr($linha_arquivo, 0, $caracter);
-    $mensagem = substr($linha_arquivo, $caracter, $qtd);
-    $caracter = 0;
-    $qtd = 0;
-    // condição principal e de exibição de tela 
-    if (($linhaprinc == true) && ($linhaprinc == $id)) {
-        echo  $id.$mensagem."<br>";
-    }
-    $linhaprinc = $id;
-}
-fclose($arquivo);
-?>
+
+
+
+                
+                if ($S === false) {
+                    $final = true;
+                break;
+                }
+            }
+        fclose($arquivo);
+        ?>
+        </main>
+        <main>
+            <button><a href="escrever.php" target="_self">Visualizar</a></br></button>
+            <button><a href="p_principal.html" class="botão">Voltar</a></button>
+        </main> 
+    </body>
+</html>
