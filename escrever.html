@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sistema de Cadastro</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <main>
+            <form name="f_questbook" method="post" action="escrever.php" autocomplete="off">
+                <label>Nome: </label>
+                <input type="text" name="f_nome" required ></br>
+
+                <label>Mensagem: </label>
+                <textarea id="f_msg" name="f_msg" ></textarea><br>
+                
+                <input type="submit" value="Enviar">
+
+                <button><a href="visualize.php" target="_self">Visualizar</a></br></button>
+                <button type="button" onclick="history.back();" class="botão">Voltar</button>
+            </form>
+        </main>
+    </body>
+</html>
