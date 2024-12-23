@@ -36,23 +36,33 @@
         $id = substr($s,0,$quantidade);
         //$quantidade = 0; 
 
-        $nome = substr($s,$quantidade+1);
-        $quantidade = delimitador($nome,'|');
+        $nome       = substr($s,$quantidade+1);
+        $qtd_nome   = delimitador($nome);
+        $nome       = substr($s,$quantidade+1,$qtd_nome);
         $quantidade = 0;
 
+        $idtx       = substr($s,$quantidade+1);
+        $idtx1      = delimitador($idtx);
+        $idtx       = substr($s,$quantidade+1,$idtx1);
+        $quantidade = 0;
+        
+        $vlr        = substr($s,$quantidade+1);
+        $vlr_1      = delimitador($vlr);
+        $vlr        = substr($s,$quantidade+1,$vlr_1);
+        $quantidade = 0;
         /*
-        $idtx = substr($s,$quantidade+1);
-        $quantidade = delimitador($idtx,'|');
-        $quantidade = 0;
-
-
-        $vlr = substr($s,$quantidade+1);
-        $quantidade = delimitador($idtx,'|');
+        $idtx_2       = substr($s,$quantidade+1);
+        $idtx2      = delimitador($idtx_2);
+        $idtx2       = substr($s,$quantidade+1,$idtx2);
         $quantidade = 0;
         */
+        echo "nome_qtd = ".$qtd_nome." - Idqtd1 = ".$idtx1." - Valor = ".$vlr_1. " - Id Taxa 2 = ".$idtx2."<br>";
 
 
-echo "nome = ".$nome."<br>";
+
+
+
+        //echo "nome = ".$nome." - Id Taxa 1 = ".$idtx." - Valor = ".$vlr. " - Id Taxa 2 = ".$idtx2."<br>";
 
         if($id !== $registroantecessor) {/*condição principal*/
             if ($qtd_vetor == 2) {
