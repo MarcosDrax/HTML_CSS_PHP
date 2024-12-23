@@ -9,7 +9,7 @@
     <body>
         <main>
             <?php
-                function delimitador($linha,$demilit){
+                function delimitador($linha,$demilit = '|'){
                     $quantidade = 0;
                     for ($f = 0; $f < 99; $f++){
                         if (substr($linha,$f,1) == $demilit){
@@ -33,8 +33,26 @@
     while (true) { //looping
         $s = fgets($arquivo);
         $quantidade = delimitador($s,'|');
-        $id = substr($s,0,$quantidade); 
-        $quantidade = 0; 
+        $id = substr($s,0,$quantidade);
+        //$quantidade = 0; 
+
+        $nome = substr($s,$quantidade+1);
+        $quantidade = delimitador($nome,'|');
+        $quantidade = 0;
+
+        /*
+        $idtx = substr($s,$quantidade+1);
+        $quantidade = delimitador($idtx,'|');
+        $quantidade = 0;
+
+
+        $vlr = substr($s,$quantidade+1);
+        $quantidade = delimitador($idtx,'|');
+        $quantidade = 0;
+        */
+
+
+echo "nome = ".$nome."<br>";
 
         if($id !== $registroantecessor) {/*condição principal*/
             if ($qtd_vetor == 2) {
@@ -56,7 +74,7 @@
                 $identificador = substr($conteudolinhas[0],0, $cont1);
                 $linha1 = substr($conteudolinhas[0],$cont1, 60 /*$cont2+1*/);
                 $linhaMsg = substr($conteudolinhas[1],$cont1, 60 /*$cont2+1*/);
-                echo  $identificador." " .$linha1."<br>".$identificador." " .$linhaMsg."</br>";
+                //echo  $identificador." " .$linha1."<br>".$identificador." " .$linhaMsg."</br>";
                 $cont1 = 0;
                 $cont2 = 0;
             }
