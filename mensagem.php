@@ -21,16 +21,14 @@
                     return $quantidade;
                 }
 
-                $registroantecessor = ''; // ID do registro anterior
-                $conteudolinhas = []; // Array para armazenar as linhas de um cadastro
+                $registroantecessor = '';
+                $conteudolinhas = []; 
                 $ids_processados = []; 
                 $arquivo = fopen("arquivo_valor.txt", "r");
 
                 while (true) { 
                     $s = fgets($arquivo); 
                     
-
-                    // Processa cada linha
                     $quantidade = delimitador($s, '|');
                     $id = substr($s, 0, $quantidade); 
 
@@ -58,7 +56,6 @@
                     $valor_2_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_2);
                     $vlr_2 = floatval($valor_2_limpo);
 
-
                     if ($id !== $registroantecessor) {
                         if (count($conteudolinhas) > 1) {
                             for ($i = 0; $i < count($conteudolinhas); $i++) {
@@ -67,18 +64,17 @@
                             $conteudolinhas = [];
                         }
                     }
-
-                    if (isset($ids_processados[$id])) {
+ 
+                    if (!empty($ids_processados[$id])) {
                         $conteudolinhas[] = $s; 
                     } else {
-                        $ids_processados[$id] = true; 
+                        $ids_processados[$id] = 1; 
                         $conteudolinhas = [$s]; 
                     }
                     
                     $registroantecessor = $id;
                     if ($s === false) break; 
                 }
-
                 fclose($arquivo);
             ?>
         </main>
