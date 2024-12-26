@@ -9,98 +9,77 @@
     <body>
         <main>
             <?php
-                function delimitador($linha,$demilit = '|'){
+                function delimitador($linha, $demilit = '|') {
                     $quantidade = 0;
-                    for ($f = 0; $f < 99; $f++){
-                        if (substr($linha,$f,1) == $demilit){
+                    for ($f = 0; $f < 99; $f++) {
+                        if (substr($linha, $f, 1) == $demilit) {
                             break;
                         } else {
-                            $quantidade = $quantidade+1;
+                            $quantidade = $quantidade + 1;
                         }
                     }
                     return $quantidade;
                 }
 
-    $quantidade = 0;
-    $registroantecessor = '';
-    $qtd_vetor = 0;
-    $qtd = 0;
-    $cont1 = 0;
-    $cont2 = 0;
-    $conteudolinhas = [];
-    $arquivo = fopen("arquivo_valor.txt", "r");
+                $registroantecessor = '';
+                $conteudolinhas = []; 
+                $ids_processados = []; 
+                $arquivo = fopen("arquivo_valor.txt", "r");
 
-    while (true) { //looping
-        $s = fgets($arquivo);
-        $quantidade = delimitador($s,'|');
-        $id = substr($s,0,$quantidade);
-        //$quantidade = 0; 
+                while (true) { 
+                    $s = fgets($arquivo); 
+                    
+                    $quantidade = delimitador($s, '|');
+                    $id = substr($s, 0, $quantidade); 
 
-        $nome       = substr($s,$quantidade+1);
-        $qtd_nome   = delimitador($nome);
-        $nome       = substr($s,$quantidade+1,$qtd_nome);
-        $quantidade = 0;
+                    $restante = substr($s, $quantidade + 1);
+                    $qtd_nome = delimitador($restante);
+                    $nome = substr($restante, 0, $qtd_nome);
 
-        $idtx       = substr($s,$quantidade+1);
-        $idtx1      = delimitador($idtx);
-        $idtx       = substr($s,$quantidade+1,$idtx1);
-        $quantidade = 0;
-        
-        $vlr        = substr($s,$quantidade+1);
-        $vlr_1      = delimitador($vlr);
-        $vlr        = substr($s,$quantidade+1,$vlr_1);
-        $quantidade = 0;
-        /*
-        $idtx_2       = substr($s,$quantidade+1);
-        $idtx2      = delimitador($idtx_2);
-        $idtx2       = substr($s,$quantidade+1,$idtx2);
-        $quantidade = 0;
-        */
-        echo "nome_qtd = ".$qtd_nome." - Idqtd1 = ".$idtx1." - Valor = ".$vlr_1. " - Id Taxa 2 = ".$idtx2."<br>";
+                    $restante = substr($restante, $qtd_nome + 1);
+                    $qtd_id1 = delimitador($restante);
+                    $id_1 = substr($restante, 0, $qtd_id1);
 
+                    $restante = substr($restante, $qtd_id1 + 1);
+                    $qtd_vlr1 = delimitador($restante);
+                    $valor_1 = substr($restante, 0, $qtd_vlr1);
+                    $valor_1_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_1);
+                    $vlr_1 = floatval($valor_1_limpo);
 
+                    $restante = substr($restante, $qtd_vlr1 + 1);
+                    $qtd_id2 = delimitador($restante);
+                    $id_2 = substr($restante, 0, $qtd_id2);
 
+                    $restante = substr($restante, $qtd_id2 + 1);
+                    $qtd_vlr2 = delimitador($restante);
+                    $valor_2 = substr($restante, 0, $qtd_vlr2);
+                    $valor_2_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_2);
+                    $vlr_2 = floatval($valor_2_limpo);
 
-
-        //echo "nome = ".$nome." - Id Taxa 1 = ".$idtx." - Valor = ".$vlr. " - Id Taxa 2 = ".$idtx2."<br>";
-
-        if($id !== $registroantecessor) {/*condição principal*/
-            if ($qtd_vetor == 2) {
-                for ($i=0; $i < 99; $i++) { /*looping conteudoLinhas[0]*/
-                    if (substr($conteudolinhas[0],$i,1) == '|') {
-                        break;
-                    } else {
-                        $cont1 = $cont1+1;
+                    if ($id !== $registroantecessor) {
+                        if (count($conteudolinhas) > 1) {
+                            for ($i = 0; $i < count($conteudolinhas); $i++) {
+                                echo $conteudolinhas[$i] . "<br>";
+                            }
+                            $conteudolinhas = [];
+                        }
                     }
-                }
-                
-                for ($j = 0; $j < 99; $j++) {
-                    if (substr($conteudolinhas[1],$cont1+$j+1,1) == '|') {
-                        break;
+ 
+                    if (!empty($ids_processados[$id])) {
+                        $conteudolinhas[] = $s; 
                     } else {
-                       $cont2 = $cont2+1;
+                        $ids_processados[$id] = 1; 
+                        $conteudolinhas = [$s]; 
                     }
+                    
+                    $registroantecessor = $id;
+                    if ($s === false) break; 
                 }
-                $identificador = substr($conteudolinhas[0],0, $cont1);
-                $linha1 = substr($conteudolinhas[0],$cont1, 60 /*$cont2+1*/);
-                $linhaMsg = substr($conteudolinhas[1],$cont1, 60 /*$cont2+1*/);
-                //echo  $identificador." " .$linha1."<br>".$identificador." " .$linhaMsg."</br>";
-                $cont1 = 0;
-                $cont2 = 0;
-            }
-            $conteudolinhas = [];
-        } 
-        $conteudolinhas[] = $s;
-        $qtd_vetor = count($conteudolinhas);
-        $registroantecessor = $id;
-                                    
-        if ($s === false) break;
-    }
-    fclose($arquivo);
-?>
+                fclose($arquivo);
+            ?>
         </main>
         <main>
             <button><a href="p_principal.html" class="botão">Voltar</a></button>
-        </main> 
+        </main>
     </body>
 </html>
