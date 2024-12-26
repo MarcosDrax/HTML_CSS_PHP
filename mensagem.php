@@ -65,16 +65,13 @@
                         }
                     }
  
-                    /*if (!empty($ids_processados[$id])) {
+                    if (!empty($ids_processados[$id])) {
                         $conteudolinhas[] = $s; 
                     } else {
                         $ids_processados[$id] = 1; 
                         $conteudolinhas = [$s]; 
-                    }*/
-                            $conteudolinhas[] = $s;
-							$qtd_vetor = count($conteudolinhas);
-
-		
+                    }
+                    
                     $registroantecessor = $id;
                     if ($s === false) break; 
                 }
