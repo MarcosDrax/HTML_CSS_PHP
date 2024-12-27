@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Mensagem Clientes</title>
+        <title>Calculo de Valores Identicos</title>
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
@@ -22,8 +22,11 @@
                 }
 
                 $registroantecessor = '';
+                $qtd_vetor = 0;
+                $cont1 = 0;
+                $cont2 = 0;
                 $conteudolinhas = []; 
-                $ids_processados = []; 
+                //$ids_processados = []; 
                 $arquivo = fopen("arquivo_valor.txt", "r");
 
                 while (true) { 
@@ -31,6 +34,34 @@
                     
                     $quantidade = delimitador($s, '|');
                     $id = substr($s, 0, $quantidade); 
+
+
+
+                    if($id !== $registroantecessor) {/*condição principal*/
+                        if ($qtd_vetor == 2) {
+                            for ($i=0; $i < 99; $i++) { /*looping conteudoLinhas[0]*/
+                                if (substr($conteudolinhas[0],$i,1) == '|') {
+                                    break;
+                                } else {
+                                    $cont1 = $cont1+1;
+                                }
+                            }
+                            
+                            for ($j = 0; $j < 99; $j++) {
+                                if (substr($conteudolinhas[1],$cont1+$j+1,1) == '|') {
+                                    break;
+                                } else {
+                                   $cont2 = $cont2+1;
+                                }
+                            }
+                            $identificador = substr($conteudolinhas[0],0, $cont1);
+                            $mensagem = substr($conteudolinhas[1],$cont1, $cont2+1);
+                            echo  $identificador." " .$mensagem." - ID_1 - ". $id_1." - R$ ".$vlr_1." - ID_2 - ".$id_2."R$ ". $vlr_2."</br>";
+                            $cont1 = 0;
+                            $cont2 = 0;
+                        }
+                        $conteudolinhas = [];
+                    } 
 
                     $restante = substr($s, $quantidade + 1);
                     $qtd_nome = delimitador($restante);
@@ -44,7 +75,7 @@
                     $qtd_vlr1 = delimitador($restante);
                     $valor_1 = substr($restante, 0, $qtd_vlr1);
                     $valor_1_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_1);
-                    $vlr_1 = floatval($valor_1_limpo);
+                    $vlr_1 = number_format(floatval($valor_1_limpo), 2, '.', '');
 
                     $restante = substr($restante, $qtd_vlr1 + 1);
                     $qtd_id2 = delimitador($restante);
@@ -54,26 +85,18 @@
                     $qtd_vlr2 = delimitador($restante);
                     $valor_2 = substr($restante, 0, $qtd_vlr2);
                     $valor_2_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_2);
-                    $vlr_2 = floatval($valor_2_limpo);
-
-                    if ($id !== $registroantecessor) {
-                        if (count($conteudolinhas) > 1) {
-                            for ($i = 0; $i < count($conteudolinhas); $i++) {
-                                echo $conteudolinhas[$i] . "<br>";
-                            }
-                            $conteudolinhas = [];
-                        }
-                    }
- 
-                    if (!empty($ids_processados[$id])) {
-                        $conteudolinhas[] = $s; 
-                    } else {
-                        $ids_processados[$id] = 1; 
-                        $conteudolinhas = [$s]; 
-                    }
+                    $vlr_2 = number_format(floatval($valor_2_limpo), 2, '.', '');
                     
+                  
+
+
+                    $conteudolinhas[] = $s;
+                    $qtd_vetor = count($conteudolinhas);
                     $registroantecessor = $id;
-                    if ($s === false) break; 
+
+
+                    
+                    if ($s === false) break;
                 }
                 fclose($arquivo);
             ?>
