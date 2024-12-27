@@ -32,7 +32,7 @@
                     $id = substr($s, 0, $quantidade); 
 
                     if($id !== $registroantecessor) {/*condição principal*/
-                        if ($qtd_vetor == 1) {
+                        if ($qtd_vetor == 2) {
                             $restante = substr($conteudolinhas[0], $quantidade);
                             $qtd_nome = delimitador($restante);
                             $nome = substr($restante, 0, $qtd_nome);
