@@ -27,21 +27,22 @@
                 $conteudolinhas = [];
                 $arquivo = fopen("arquivo_valor.txt", "r");
 
-
                 while (true) {
                     $s = fgets($arquivo);
                     $quantidade = delimitador($s, '|');
                     $id = substr($s, 0, $quantidade);
-
 
                     if($id !== $registroantecessor) {/*condição principal*/
                         
                         if ($qtd_vetor == 2) {
                             $quantidade = delimitador($conteudolinhas[0], '|');
 
-                            $restante = substr($conteudolinhas[0], $quantidade);
-                            $qtd_id = delimitador($restante);
-                            $registro = substr($restante, 0, $qtd_id);
+                            
+                            $restante = $conteudolinhas[0];
+                            $qtd_id   = delimitador($restante);
+                            $registro = substr($restante, 0, $quantidade);
+                            
+
 
                             $restante = substr($restante, $qtd_id + 1);
                             $qtd_nome = delimitador($restante);
