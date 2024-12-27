@@ -28,15 +28,12 @@
 
                 while (true) { 
                     $s = fgets($arquivo); 
-                    
                     $quantidade = delimitador($s, '|');
                     $id = substr($s, 0, $quantidade); 
 
-
-
                     if($id !== $registroantecessor) {/*condição principal*/
                         if ($qtd_vetor == 1) {
-                            $restante = substr($s, $quantidade + 1);
+                            $restante = substr($conteudolinhas[0], $quantidade);
                             $qtd_nome = delimitador($restante);
                             $nome = substr($restante, 0, $qtd_nome);
         
@@ -60,13 +57,12 @@
                             $valor_2_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_2);
                             $vlr_2 = number_format(floatval($valor_2_limpo), 2, '.', '');
                             
-                            echo  $id." - " .$nome." - ID_1 - "."<br>"; 
-                            echo  $id." - " .$id_1." - R$ ".$vlr_1." - ID_2 - ".$id_2."R$ ". $vlr_2."</br>";
-                            $cont1 = 0;
-                            $cont2 = 0;
+                            echo  $id." - Nome: " .$nome. "<br>"; 
+                            echo  "ID_1: ".$id." - " .$id_1." - R$ ".$vlr_1." - ID_2 - ".$id_2."R$ ". $vlr_2."</br>";
                         }
                         $conteudolinhas = [];
                     } 
+                    // esta puxando os registros que somente tem 1 linha.
                     $conteudolinhas[] = $s;
                     $qtd_vetor = count($conteudolinhas);
                     $registroantecessor = $id;
