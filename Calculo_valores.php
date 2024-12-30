@@ -21,7 +21,6 @@
                     return $quantidade;
                 }
 
-
                 $registroantecessor = '';
                 $qtd_vetor = 0;
                 $conteudolinhas = [];
@@ -29,13 +28,14 @@
 
                 while (true) {
                     $s = fgets($arquivo);
-                    $quantidade = delimitador($s, '|');
+                    $quantidade = delimitador($s);
                     $id = substr($s, 0, $quantidade);
 
                     if($id !== $registroantecessor) {/*condição principal*/
                         
                         if ($qtd_vetor == 2) {
-                            $quantidade = delimitador($conteudolinhas[0], '|');
+                            //vetor = 0
+                            $quantidade = delimitador($conteudolinhas[0]);
                             
                             $restante = $conteudolinhas[0];
                             $qtd_id   = delimitador($restante);
@@ -65,19 +65,49 @@
                             $valor_2_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_2);
                             $vlr_2 = number_format(floatval($valor_2_limpo), 2, '.', '');
 
+                            //vetor 1
+                            $quantid_1 = delimitador($conteudolinhas[1]);
+                            
+                            $restante1 = $conteudolinhas[1];
+                            $qtd_id_1   = delimitador($restante1);
+                            $registro01 = substr($restante1, 0, $quantid_1);
+                            
+                            $restante1 = substr($restante1, $qtd_id + 1);
+                            $qtd_nome1 = delimitador($restante1);
+                            $nome01 = substr($restante1, 0, $qtd_nome);
+       
+                            $restante1 = substr($restante1, $qtd_nome1 + 1);
+                            $ident_1 = delimitador($restante1);
+                            $id_01 = substr($restante1, 0, $ident_1);
+       
+                            $restante1 = substr($restante1, $ident_1 + 1);
+                            $qtd_vlr01 = delimitador($restante1);
+                            $valor_01 = substr($restante1, 0, $qtd_vlr01);
+                            $valor_01_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_01);
+                            $vlr_01 = number_format(floatval($valor_01_limpo), 2, '.', '');
+       
+                            $restante1 = substr($restante1, $qtd_vlr01 + 1);
+                            $qtd_id02 = delimitador($restante1);
+                            $id_02 = substr($restante1, 0, $qtd_id02);
+       
+                            $restante1 = substr($restante1, $qtd_id2 + 1);
+                            $qtd_vlr02 = delimitador($restante1);
+                            $valor_02 = substr($restante1, 0, $qtd_vlr02);
+                            $valor_02_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_02);
+                            $vlr_02 = number_format(floatval($valor_02_limpo), 2, '.', '');
+
                         /*- como calcular valores dentro de um vetor.
                         - identificar os Id's que que são iguais dentro arquivo.  
                         - calcular os valores iguais dentro do arquivo */ 
                          //echo  $registro." - Nome: " .$nome." - ID_1: " .$id." - " .$id_1." - R$ ".$vlr_1." - ID_2 - ".$id_2."R$ ". $vlr_2."</br>";
                           
-                            echo $conteudolinhas[0]."<br>";
-                            echo $conteudolinhas[1]."<br>";
+                            echo  $conteudolinhas[0]."<br>";
+                            echo  "valor total = ".$vlr_1 + $vlr_2."<br>";
+                            echo  $conteudolinhas[1]."<br>";
+                            echo  "valor total = ".$vlr_01+ $vlr_02 ."<br>";
                         }
-                        
-                        //echo $conteudolinhas[1];
                         $conteudolinhas = [];
                     }
-                    // esta puxando os registros que somente tem 1 linha.
                     $conteudolinhas[] = $s;
                     $qtd_vetor = count($conteudolinhas);
                     $registroantecessor = $id;
