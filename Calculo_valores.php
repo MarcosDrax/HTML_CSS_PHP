@@ -36,14 +36,11 @@
                         
                         if ($qtd_vetor == 2) {
                             $quantidade = delimitador($conteudolinhas[0], '|');
-
                             
                             $restante = $conteudolinhas[0];
                             $qtd_id   = delimitador($restante);
                             $registro = substr($restante, 0, $quantidade);
                             
-
-
                             $restante = substr($restante, $qtd_id + 1);
                             $qtd_nome = delimitador($restante);
                             $nome = substr($restante, 0, $qtd_nome);
@@ -67,9 +64,17 @@
                             $valor_2 = substr($restante, 0, $qtd_vlr2);
                             $valor_2_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_2);
                             $vlr_2 = number_format(floatval($valor_2_limpo), 2, '.', '');
-                           
-                            echo  $registro." - Nome: " .$nome." - ID_1: " .$id." - " .$id_1." - R$ ".$vlr_1." - ID_2 - ".$id_2."R$ ". $vlr_2."</br>";
+
+                        /*- como calcular valores dentro de um vetor.
+                        - identificar os Id's que que são iguais dentro arquivo.  
+                        - calcular os valores iguais dentro do arquivo */ 
+                         //echo  $registro." - Nome: " .$nome." - ID_1: " .$id." - " .$id_1." - R$ ".$vlr_1." - ID_2 - ".$id_2."R$ ". $vlr_2."</br>";
+                          
+                            echo $conteudolinhas[0]."<br>";
+                            echo $conteudolinhas[1]."<br>";
                         }
+                        
+                        //echo $conteudolinhas[1];
                         $conteudolinhas = [];
                     }
                     // esta puxando os registros que somente tem 1 linha.
