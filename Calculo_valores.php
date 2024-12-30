@@ -20,7 +20,6 @@
                     }
                     return $quantidade;
                 }
-
                 $registroantecessor = '';
                 $qtd_vetor = 0;
                 $conteudolinhas = [];
@@ -32,11 +31,9 @@
                     $id = substr($s, 0, $quantidade);
 
                     if($id !== $registroantecessor) {/*condição principal*/
-                        
                         if ($qtd_vetor == 2) {
-                            //vetor = 0
+                            /*vetor = 0 - refaturar o codigo abaixo */
                             $quantidade = delimitador($conteudolinhas[0]);
-                            
                             $restante = $conteudolinhas[0];
                             $qtd_id   = delimitador($restante);
                             $registro = substr($restante, 0, $quantidade);
@@ -65,9 +62,8 @@
                             $valor_2_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_2);
                             $vlr_2 = number_format(floatval($valor_2_limpo), 2, '.', '');
 
-                            //vetor 1
+                            /*vetor 1- refaturar o codigo abaixo*/
                             $quantid_1 = delimitador($conteudolinhas[1]);
-                            
                             $restante1 = $conteudolinhas[1];
                             $qtd_id_1   = delimitador($restante1);
                             $registro01 = substr($restante1, 0, $quantid_1);
@@ -95,11 +91,6 @@
                             $valor_02 = substr($restante1, 0, $qtd_vlr02);
                             $valor_02_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_02);
                             $vlr_02 = number_format(floatval($valor_02_limpo), 2, '.', '');
-
-                        /*- como calcular valores dentro de um vetor.
-                        - identificar os Id's que que são iguais dentro arquivo.  
-                        - calcular os valores iguais dentro do arquivo */ 
-                         //echo  $registro." - Nome: " .$nome." - ID_1: " .$id." - " .$id_1." - R$ ".$vlr_1." - ID_2 - ".$id_2."R$ ". $vlr_2."</br>";
                           
                             echo  $conteudolinhas[0]."<br>";
                             echo  "valor total = ".$vlr_1 + $vlr_2."<br>";
@@ -121,6 +112,3 @@
         </main>
     </body>
 </html>
-
-
-
