@@ -103,7 +103,6 @@
                                 if (($result == $vlrTot01) or ($result == $vlrTot02) or ($result == $vlrTot03) or($result == $vlrTot04)) {
                                     echo "Registro = " .$registro. " | Nome = ".$nome. " | valor total = R$ " . $result . "<br>";
                                 } 
-                                    /*echo $conteudolinhas[0] . "valor total = " . $vlrTot01 . "<br>";echo $conteudolinhas[1] . "valor total = " . $vlrTot02 . "<br>";*/
                                 }                           
                             }
                             $conteudolinhas = [];
