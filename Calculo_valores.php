@@ -95,10 +95,14 @@
                                 $valor_02_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_02);
                                 $vlr_02 = number_format(floatval($valor_02_limpo), 2, '.', '');
                             
-                                $vlrTot01 = $vlr_1 + $vlr_2;
-                                $vlrTot02 = $vlr_01 + $vlr_02;
-                                echo  $conteudolinhas[0]."valor total = ".$vlrTot01."<br>";
-                                echo  $conteudolinhas[1]."valor total = ".$vlrTot02 ."<br>";
+                                if (($id_1 == $id_01) or ($id_2 == $id_02) or ($id_1 == $id_02) or ($id_2 == $id_01)) {
+                                    $vlrTot01 = $vlr_1 + $vlr_2;
+                                    $vlrTot02 = $vlr_01 + $vlr_02;
+                                    echo $conteudolinhas[0] . "valor total = " . $vlrTot01 . "<br>";
+                                    echo $conteudolinhas[1] . "valor total = " . $vlrTot02 . "<br>";
+                                } else {
+                                    echo "Os Valores existentes são diferentes" . "<br>";
+                                }                                
                             }
                             $conteudolinhas = [];
                         }
