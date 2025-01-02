@@ -94,7 +94,7 @@
                                 $valor_02 = substr($restante1, 0, $qtd_vlr02);
                                 $valor_02_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_02);
                                 $vlr_02 = number_format(floatval($valor_02_limpo), 2, '.', '');
-                            
+                                $vlrTot01 = $vlrTot02 = $vlrTot03 = $vlrTot04 = 0;
                                 if (($id_1 == $id_01) or ($id_2 == $id_02) or ($id_1 == $id_02) or ($id_2 == $id_01)) {
                                     if ($id_1 == $id_01) { $vlrTot01 = $vlr_1 + $vlr_01; $result =  $vlrTot01 ;}
                                         if ($id_2 == $id_02) { $vlrTot02 = $vlr_2 + $vlr_02; $result =  $vlrTot02;}
