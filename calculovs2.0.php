@@ -95,12 +95,12 @@
                                 $valor_02_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_02);
                                 $vlr_02 = number_format(floatval($valor_02_limpo), 2, '.', '');
                                 $vlrTot01 = $vlrTot02 = $vlrTot03 = $vlrTot04 = 0;
-                                if (($id_1 == $id_01) or ($id_2 == $id_02) or ($id_1 == $id_02) or ($id_2 == $id_01)) {
+                                if (($id_1 == $id_01) or ($id_2 == $id_02) or ($id_1 == $id_02) or ($id_2 == $id_01)) { /*condição = identificar as taxas e calcular somente os */
                                     if ($id_1 == $id_01) { $vlrTot01 = $vlr_1 + $vlr_01; $result =  $vlrTot01 ;}
                                         if ($id_2 == $id_02) { $vlrTot02 = $vlr_2 + $vlr_02; $result =  $vlrTot02;}
                                             if ($id_1 == $id_02) { $vlrTot03 = $vlr_1 + $vlr_02; $result =  $vlrTot03;}
                                                 if ($id_2 == $id_01) { $vlrTot03 = $vlr_2 + $vlr_01; $result = $vlrTot04;}  
-                                if (($result == $vlrTot01) or ($result == $vlrTot02) or ($result == $vlrTot03) or($result == $vlrTot04)) {
+                                if (($result == $vlrTot01) or ($result == $vlrTot02) or ($result == $vlrTot03) or ($result == $vlrTot04)) {
                                     echo "Registro = " .$registro. " | Nome = ".$nome. " | valor total = R$ " . $result . "<br>";
                                 } 
                                 }                           
