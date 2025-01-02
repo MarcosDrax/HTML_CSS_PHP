@@ -35,7 +35,7 @@
 
                         if($id !== $registroantecessor) {/*condição principal*/
                             if ($qtd_vetor == 2) {
-                                /*vetor = 0 - refaturar o codigo abaixo */
+                                /*vetor = 0 - refatorar o codigo abaixo */
                                 $quantidade = delimitador($conteudolinhas[0]);
                                 $restante = $conteudolinhas[0];
                                 $qtd_id   = delimitador($restante);
@@ -65,7 +65,7 @@
                                 $valor_2_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_2);
                                 $vlr_2 = number_format(floatval($valor_2_limpo), 2, '.', '');
 
-                                /*vetor 1- refaturar o codigo abaixo*/
+                                /*vetor 1- refatorar o codigo abaixo*/
                                 $quantid_1 = delimitador($conteudolinhas[1]);
                                 $restante1 = $conteudolinhas[1];
                                 $qtd_id_1   = delimitador($restante1);
@@ -96,10 +96,10 @@
                                 $vlr_02 = number_format(floatval($valor_02_limpo), 2, '.', '');
                             
                                 if (($id_1 == $id_01) or ($id_2 == $id_02) or ($id_1 == $id_02) or ($id_2 == $id_01)) {
-                                    if ($id_1 == $id_01) { $vlrTot01 = $vlr_1 + $vlr_01; echo "Registro = " .$registro. " | Nome = ".$nome. " | valor total = " . $vlrTot01 . "<br>";}
-                                        if ($id_2 == $id_02) { $vlrTot02 = $vlr_2 + $vlr_02; echo "Registro = " .$registro. " | Nome = ".$nome. " | valor total = " . $vlrTot02 . "<br>";}
-                                            if ($id_1 == $id_02) { $vlrTot03 = $vlr_1 + $vlr_02; echo "Registro = " .$registro. " | Nome = ".$nome. " | valor total = " . $vlrTot03 . "<br>";}
-                                                if ($id_2 == $id_01) { $vlrTot03 = $vlr_2 + $vlr_01; echo "Registro = " .$registro. " | Nome = ".$nome. " | valor total = " . $vlrTot04 . "<br>";}                                    
+                                    if ($id_1 == $id_01) { $vlrTot01 = $vlr_1 + $vlr_01; echo "Registro = " .$registro. " | Nome = ".$nome. " | valor total = R$ " . $vlrTot01 . "<br>";}
+                                        if ($id_2 == $id_02) { $vlrTot02 = $vlr_2 + $vlr_02; echo "Registro = " .$registro. " | Nome = ".$nome. " | valor total = R$ " . $vlrTot02 . "<br>";}
+                                            if ($id_1 == $id_02) { $vlrTot03 = $vlr_1 + $vlr_02; echo "Registro = " .$registro. " | Nome = ".$nome. " | valor total = R$ " . $vlrTot03 . "<br>";}
+                                                if ($id_2 == $id_01) { $vlrTot03 = $vlr_2 + $vlr_01; echo "Registro = " .$registro. " | Nome = ".$nome. " | valor total = R$ " . $vlrTot04 . "<br>";}                                    
                                     //echo $conteudolinhas[0] . "valor total = " . $vlrTot01 . "<br>";
                                     //echo $conteudolinhas[1] . "valor total = " . $vlrTot02 . "<br>";
                                 }                           
