@@ -89,7 +89,7 @@
                                 $qtd_id02 = delimitador($restante1);
                                 $id_02 = substr($restante1, 0, $qtd_id02);
         
-                                $restante1 = substr($restante1, $qtd_id2 + 1);
+                                $restante1 = substr($restante1, $qtd_id02 + 1);
                                 $qtd_vlr02 = delimitador($restante1);
                                 $valor_02 = substr($restante1, 0, $qtd_vlr02);
                                 $valor_02_limpo = str_replace(['R$', ',', ' '], ['', '.', ''], $valor_02);
@@ -97,10 +97,14 @@
                                 $vlrTot01 = $vlrTot02 = $vlrTot03 = $vlrTot04 = 0;
                                 if (($id_1 == $id_01) or ($id_2 == $id_02) or ($id_1 == $id_02) or ($id_2 == $id_01)) { /*condição = identificar as taxas e calcular somente os */
                                     if ($id_1 == $id_01) { $vlrTot01 = $vlr_1 + $vlr_01; $result =  $vlrTot01 ;}
+
                                         if ($id_2 == $id_02) { $vlrTot02 = $vlr_2 + $vlr_02; $result =  $vlrTot02;}
+
                                             if ($id_1 == $id_02) { $vlrTot03 = $vlr_1 + $vlr_02; $result =  $vlrTot03;}
+
                                                 if ($id_2 == $id_01) { $vlrTot03 = $vlr_2 + $vlr_01; $result = $vlrTot04;}  
-                                if (($result == $vlrTot01) or ($result == $vlrTot02) or ($result == $vlrTot03) or ($result == $vlrTot04)) {
+
+                                if (($result = $vlrTot01) or ($result = $vlrTot02) or ($result = $vlrTot03) or ($result = $vlrTot04)) {
                                     echo "Registro = " .$registro. " | Nome = ".$nome. " | valor total = R$ " . $result . "<br>";
                                 } 
                                 }                           
@@ -110,7 +114,7 @@
                         $conteudolinhas[] = $s;
                         $qtd_vetor = count($conteudolinhas);
                         $registroantecessor = $id;
-                        //if ($s === false) break;
+                        //if ($s === false) break; 
                     }
                 }
                 fclose($arquivo);
